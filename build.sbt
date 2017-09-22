@@ -13,7 +13,8 @@ lazy val root = (project in file(".")).
       libraryDependencies += "com.amazonaws" % "aws-lambda-java-events" % "2.0",
       libraryDependencies += "io.circe" %% "circe-core" % "0.8.0",
       libraryDependencies += "io.circe" %% "circe-generic" % "0.8.0",
-      libraryDependencies += "io.circe" %% "circe-parser" % "0.8.0"
+      libraryDependencies += "io.circe" %% "circe-parser" % "0.8.0",
+      libraryDependencies += "com.softwaremill.sttp" %% "core" % "0.0.14"
     )),
 
     name := "jira-discord-lambda",
