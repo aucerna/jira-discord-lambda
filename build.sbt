@@ -10,7 +10,8 @@ lazy val root = (project in file(".")).
       version      := "0.1.0-SNAPSHOT",
       retrieveManaged := true,
       libraryDependencies += "com.amazonaws" % "aws-lambda-java-core" % "1.1.0",
-      libraryDependencies += "com.amazonaws" % "aws-lambda-java-events" % "2.0"
+      libraryDependencies += "com.amazonaws" % "aws-lambda-java-events" % "2.0",
+      libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.5"
     )),
     name := "jira-discord-lambda",
     libraryDependencies += scalaTest % Test,
