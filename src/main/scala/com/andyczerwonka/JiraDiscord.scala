@@ -45,27 +45,30 @@ class JiraDiscord extends RequestStreamHandler {
     try {
       val request = sttp
         .contentType("application/json")
+        .header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36")
         .body(testMsg)
         .post(uri)
-      request.send()
+      val response = request.send()
+      logger.log(response.unsafeBody)
+      val jsonResponse =
+        raw"""
+             |{
+             |  "isBase64Encoded": false,
+             |  "statusCode": 200,
+             |  "headers": {
+             |     "Access-Control-Allow-Origin": "*",
+             |     "Content-Type": "application/json"
+             |  },
+             |  "body": "Yo!"
+             |}
+        """.stripMargin
+
+      output.write(jsonResponse.getBytes("UTF-8"))
     } finally {
       backend.close()
     }
 
-    val jsonResponse =
-      raw"""
-           |{
-           |  "isBase64Encoded": false,
-           |  "statusCode": 200,
-           |  "headers": {
-           |     "Access-Control-Allow-Origin": "*",
-           |     "Content-Type": "application/json"
-           |  },
-           |  "body": "Yo!"
-           |}
-        """.stripMargin
 
-    output.write(jsonResponse.getBytes("UTF-8"))
 
   }
 
