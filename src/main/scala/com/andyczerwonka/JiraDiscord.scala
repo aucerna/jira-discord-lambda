@@ -3,16 +3,19 @@ package com.andyczerwonka
 import java.io.{InputStream, OutputStream}
 
 import com.amazonaws.services.lambda.runtime.{Context, RequestStreamHandler}
-import play.api.libs.json.{JsString, JsValue, Json}
+import io.circe.{HCursor, Json}
+import io.circe.parser._
 
 class JiraDiscord extends RequestStreamHandler {
 
   override def handleRequest(input: InputStream, output: OutputStream, context: Context): Unit  = {
 
-    val json: JsValue = Json.parse(input)
+    val rawJson = scala.io.Source.fromInputStream(input).getLines().mkString("\n")
+    val doc = parse(rawJson).getOrElse(Json.Null)
 
-    val path = (json \ "pathParameters" \ "proxy").getOrElse(JsString("missing-id/missing-token"))
-    var Array(discordId, discordToken) = Json.stringify(path).split("/")
+    val cursor: HCursor = doc.hcursor
+    val path = cursor.downField("pathParameters").downField("proxy").as[String].getOrElse("missing-id/missing-token")
+    var Array(discordId, discordToken) = path.split("/")
 
     val jsonResponse =
       raw"""
