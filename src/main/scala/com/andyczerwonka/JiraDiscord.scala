@@ -3,7 +3,7 @@ package com.andyczerwonka
 import java.io.{InputStream, OutputStream}
 
 import com.amazonaws.services.lambda.runtime.{Context, RequestStreamHandler}
-import com.andyczerwonka.DiscordProtocol._
+import com.andyczerwonka.DiscordWebhook._
 import com.softwaremill.sttp._
 import io.circe.Json
 import io.circe.generic.auto._
@@ -18,7 +18,7 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
     val rawJson = scala.io.Source.fromInputStream(input).getLines().mkString("\n")
     val jsonDoc = parse(rawJson).getOrElse(Json.Null)
     val uri = discordUri(jsonDoc)
-    val msg = discordWebhook("Hello from Amazon AWS", "https://example.com", "This is my descirption")
+    val msg = DiscordWebhook("Hello from Amazon AWS", "https://example.com", "This is my descirption")
     implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
     try {
       val request = sttp

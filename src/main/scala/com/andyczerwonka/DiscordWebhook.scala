@@ -1,6 +1,9 @@
 package com.andyczerwonka
 
-object DiscordProtocol {
+case class Embeds(title: String, url: String, description: String, color: Int)
+case class DiscordWebhook(username: String, avatar_url: String, embeds: Array[Embeds])
+
+object DiscordWebhook {
 
   /**
     * {
@@ -18,10 +21,7 @@ object DiscordProtocol {
     * }
     */
 
-  case class Embeds(title: String, url: String, description: String, color: Int)
-  case class DiscordWebhook(username: String, avatar_url: String, embeds: Array[Embeds])
-
-  def discordWebhook(title: String, url: String, description: String): DiscordWebhook = {
+  def apply(title: String, url: String, description: String): DiscordWebhook = {
     val embeds = Array(Embeds(title, url, description, 1681177))
     DiscordWebhook("JIRA", "https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png", embeds)
   }
