@@ -7,7 +7,9 @@ import io.circe.generic.auto._
 import io.circe.parser._
 import io.circe.syntax._
 
-class JiraParserSpec extends FlatSpec with Matchers {
+import scala.util.Success
+
+class JiraParserSpec extends FlatSpec with Matchers with Inside {
 
   def extractBody(resourceName: String) = {
     import scala.io.Source
@@ -19,19 +21,20 @@ class JiraParserSpec extends FlatSpec with Matchers {
 
   "The JIRA parser" should "generate a valid model on the created-comment event" in {
     val json = extractBody("create-comment.json")
-    println(json)
-    val model = JiraParser.parse(json)
-    model.title shouldEqual "A problem which impairs or prevents the functions of the product."
-    model.event shouldEqual "Comment Created"
-    model.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
+    inside(JiraParser.parse(json)) { case Success(event) =>
+      event.title shouldEqual "A problem which impairs or prevents the functions of the product."
+      event.event shouldEqual "Comment Created"
+      event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
+    }
   }
 
   it should "generate a valid model on the updated-comment event" in {
     val json = extractBody("update-comment.json")
-    val model = JiraParser.parse(json)
-    model.title shouldEqual "A problem which impairs or prevents the functions of the product."
-    model.event shouldEqual "Comment Updated"
-    model.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
+    inside(JiraParser.parse(json)) { case Success(event) =>
+      event.title shouldEqual "A problem which impairs or prevents the functions of the product."
+      event.event shouldEqual "Comment Updated"
+      event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
+    }
   }
 
 }

@@ -18,24 +18,26 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
     logger.log(rawJson)
     val jsonDoc = parse(rawJson).getOrElse(Json.Null)
     val uri = discordUri(jsonDoc)
-    implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
-    try {
-      val json = extractJiraBody(jsonDoc)
-      logger.log(json.spaces2)
-      val model = JiraParser.parse(json)
-      val title = s"${model.key}: ${model.title}"
-      val desc = s"**${model.event}**\n${model.description()}"
-      val msg = DiscordWebhook(title, model.url, desc, model.author()).asJson.noSpaces
-      val request = sttp
-        .contentType("application/json")
-        .header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36")
-        .body(msg)
-        .post(uri)
-      val response = request.send()
-      output.write(okResponse)
-    } finally {
-      backend.close()
+    val json = extractJiraBody(jsonDoc)
+    logger.log(json.spaces2)
+    JiraParser.parse(json) map { event =>
+      implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
+      try {
+        val title = s"${event.key}: ${event.title}"
+        val desc = s"**${event.event}**\n${event.description()}"
+        val msg = DiscordWebhook(title, event.url, desc, event.author()).asJson.noSpaces
+        val request = sttp
+          .contentType("application/json")
+          .header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36")
+          .body(msg)
+          .post(uri)
+        val response = request.send()
+        output.write(ok)
+      } finally {
+        backend.close()
+      }
     }
+
   }
 
 }

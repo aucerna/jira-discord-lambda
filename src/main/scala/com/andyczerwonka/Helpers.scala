@@ -6,7 +6,7 @@ import io.circe.{HCursor, Json}
 
 trait Helpers {
 
-  val okResponse =
+  val ok =
     raw"""
          |{
          |  "isBase64Encoded": false,

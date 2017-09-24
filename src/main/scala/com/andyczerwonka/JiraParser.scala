@@ -4,7 +4,9 @@ import com.softwaremill.sttp.Uri
 import io.circe.parser.parse
 import io.circe.{HCursor, Json}
 
-abstract class IssueUpdated(val event: String, cursor: HCursor) {
+import scala.util.{Success, Try}
+
+abstract class IssueUpdatedEvent(val event: String, cursor: HCursor) {
   val key = cursor.downField("issue").downField("key").as[String].getOrElse(throw new Exception("key not found"))
   val url = {
     val uriString = cursor.downField("issue").downField("self").as[String].getOrElse(throw new Exception("url not found"))
@@ -20,7 +22,7 @@ abstract class IssueUpdated(val event: String, cursor: HCursor) {
   def author(): String
 }
 
-class CommentEvent(event: String, cursor: HCursor) extends IssueUpdated(event, cursor) {
+class CommentEvent(event: String, cursor: HCursor) extends IssueUpdatedEvent(event, cursor) {
 
   override val description = cursor
     .downField("comment")
@@ -35,14 +37,15 @@ class CommentEvent(event: String, cursor: HCursor) extends IssueUpdated(event, c
 
 object JiraParser {
 
-  def parse(body: Json): IssueUpdated = {
-    val cursor: HCursor = body.hcursor
-    cursor.downField("issue_event_type_name").as[String].getOrElse("") match {
-      case "issue_commented" => new CommentEvent("Comment Created", cursor)
-      case "issue_comment_edited" => new CommentEvent("Comment Updated", cursor)
-      case _ => throw new Exception("Unknown JIRA Event Type")
+  def parse(body: Json): Try[IssueUpdatedEvent] = {
+    Try {
+      val cursor: HCursor = body.hcursor
+      cursor.downField("issue_event_type_name").as[String].getOrElse("") match {
+        case "issue_commented" => new CommentEvent("Comment Created", cursor)
+        case "issue_comment_edited" => new CommentEvent("Comment Updated", cursor)
+        case et @ _ => throw new Exception(s"$et is an unknown event")
+      }
     }
-
   }
 
 }
