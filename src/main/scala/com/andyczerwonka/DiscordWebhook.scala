@@ -1,6 +1,7 @@
 package com.andyczerwonka
 
-case class Embeds(title: String, url: String, description: String, color: Int)
+case class Footer(text: String)
+case class Embeds(title: String, url: String, description: String, color: Int, footer: Footer)
 case class DiscordWebhook(username: String, avatar_url: String, embeds: Array[Embeds])
 
 object DiscordWebhook {
@@ -21,8 +22,8 @@ object DiscordWebhook {
     * }
     */
 
-  def apply(title: String, url: String, description: String): DiscordWebhook = {
-    val embeds = Array(Embeds(title, url, description, 1681177))
+  def apply(title: String, url: String, description: String, author: String): DiscordWebhook = {
+    val embeds = Array(Embeds(title, url, description, 1681177, Footer(author)))
     DiscordWebhook("JIRA", "https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png", embeds)
   }
 

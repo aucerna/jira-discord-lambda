@@ -1,0 +1,40 @@
+{
+  "timestamp" : 1506255630929,
+  "webhookEvent" : "comment_created",
+  "comment" : {
+    "self" : "https://jira.3esi-enersight.com/rest/api/2/issue/14556/comment/21580",
+    "id" : "21580",
+    "author" : {
+      "self" : "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
+      "name" : "andy.czerwonka",
+      "key" : "aczerwonka",
+      "emailAddress" : "andy.czerwonka@3esi-enersight.com",
+      "avatarUrls" : {
+        "48x48" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48",
+        "24x24" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24",
+        "16x16" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16",
+        "32x32" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32"
+      },
+      "displayName" : "Andy Czerwonka",
+      "active" : true,
+      "timeZone" : "America/Edmonton"
+    },
+    "body" : "Testing the JIRA->Discord machinery.",
+    "updateAuthor" : {
+      "self" : "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
+      "name" : "andy.czerwonka",
+      "key" : "aczerwonka",
+      "emailAddress" : "andy.czerwonka@3esi-enersight.com",
+      "avatarUrls" : {
+        "48x48" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48",
+        "24x24" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24",
+        "16x16" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16",
+        "32x32" : "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32"
+      },
+      "displayName" : "Andy Czerwonka",
+      "active" : true,
+      "timeZone" : "America/Edmonton"
+    },
+    "created" : "2017-09-24T06:20:30.929-0600",
+    "updated" : "2017-09-24T06:20:30.929-0600"
+  }

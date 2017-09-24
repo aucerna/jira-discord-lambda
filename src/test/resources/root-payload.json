@@ -1,0 +1,57 @@
+{
+  "resource": "/{proxy+}",
+  "path": "/360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq",
+  "httpMethod": "POST",
+  "headers": {
+    "Accept": "*/*",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "CA",
+    "Content-Type": "application/json; charset=UTF-8",
+    "Host": "abjo5p3lkc.execute-api.us-west-2.amazonaws.com",
+    "User-Agent": "Atlassian HttpClient 0.23.3 / JIRA-7.3.6 (73017) / Default",
+    "Via": "1.1 localhost (Apache-HttpClient/4.4.1 (cache)), 1.1 d65b6d948852f8650f0e310786b8a945.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "Q5bC644Sid49Ap3ChFqjukgHp44DyKKFYqlY6iaUePYNzPr6dayy9A==",
+    "X-Amzn-Trace-Id": "Root=1-59c7a30f-1c4cf22b2d377e000429e81d",
+    "X-Forwarded-For": "172.110.73.244, 54.182.214.86",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "queryStringParameters": {
+    "user_id": "andy.czerwonka",
+    "user_key": "aczerwonka"
+  },
+  "pathParameters": {
+    "proxy": "360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq"
+  },
+  "stageVariables": null,
+  "requestContext": {
+    "path": "/prod/360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq",
+    "accountId": "751359587126",
+    "resourceId": "a4kjc8",
+    "stage": "prod",
+    "requestId": "c1e48b3d-a122-11e7-ae6d-39e91353c326",
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "apiKey": "",
+      "sourceIp": "172.110.73.244",
+      "accessKey": null,
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Atlassian HttpClient 0.23.3 / JIRA-7.3.6 (73017) / Default",
+      "user": null
+    },
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "abjo5p3lkc"
+  },
+  "body": "{\"timestamp\":1506255630929,\"webhookEvent\":\"comment_created\",\"comment\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/14556/comment/21580\",\"id\":\"21580\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"body\":\"Testing the JIRA->Discord machinery.\",\"updateAuthor\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"created\":\"2017-09-24T06:20:30.929-0600\",\"updated\":\"2017-09-24T06:20:30.929-0600\"}}",
+  "isBase64Encoded": false
+}

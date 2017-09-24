@@ -14,13 +14,15 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
 
   override def handleRequest(input: InputStream, output: OutputStream, context: Context): Unit = {
     val logger = context.getLogger
-
     val rawJson = scala.io.Source.fromInputStream(input).getLines().mkString("\n")
+    logger.log(rawJson)
     val jsonDoc = parse(rawJson).getOrElse(Json.Null)
     val uri = discordUri(jsonDoc)
-    val msg = DiscordWebhook("Hello from Amazon AWS", "https://example.com", "This is my descirption")
     implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
     try {
+      val json = extractJiraBody(jsonDoc)
+      val model = JiraParser.parse(json)
+      val msg = DiscordWebhook(model.title(), model.url(), model.description(), model.author())
       val request = sttp
         .contentType("application/json")
         .header("User-Agent", "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36")
@@ -33,7 +35,6 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
     } finally {
       backend.close()
     }
-
   }
 
 }
