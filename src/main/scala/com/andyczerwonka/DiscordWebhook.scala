@@ -24,7 +24,7 @@ object DiscordWebhook {
 
   def apply(title: String, url: String, description: String, author: String): DiscordWebhook = {
     val embeds = Array(Embeds(title, url, description, 4540783, Footer(author)))
-    DiscordWebhook("JIRA", "https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png", embeds)
+    DiscordWebhook("JIRA", "https://a.slack-edge.com/ae7f/plugins/jira/assets/service_512.png", embeds)
   }
 
 }
