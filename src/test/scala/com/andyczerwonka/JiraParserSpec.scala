@@ -22,8 +22,8 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
   "The JIRA parser" should "generate a valid model on the created-comment event" in {
     val json = extractBody("create-comment.json")
     inside(JiraParser.parse(json)) { case Success(event) =>
-      event.title shouldEqual "A problem which impairs or prevents the functions of the product."
-      event.event shouldEqual "Comment Created"
+      event.summary shouldEqual "Tax Import Not Making Sense"
+      event.eventTypeLabel shouldEqual "Comment Created"
       event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
     }
   }
@@ -31,8 +31,8 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
   it should "generate a valid model on the updated-comment event" in {
     val json = extractBody("update-comment.json")
     inside(JiraParser.parse(json)) { case Success(event) =>
-      event.title shouldEqual "A problem which impairs or prevents the functions of the product."
-      event.event shouldEqual "Comment Updated"
+      event.summary shouldEqual "Tax Import Not Making Sense"
+      event.eventTypeLabel shouldEqual "Comment Updated"
       event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
     }
   }
