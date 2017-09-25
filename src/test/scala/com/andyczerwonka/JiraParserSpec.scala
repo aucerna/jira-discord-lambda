@@ -1,11 +1,9 @@
 package com.andyczerwonka
 
-import com.softwaremill.sttp.Uri
 import org.scalatest._
 import io.circe.{HCursor, Json}
-import io.circe.generic.auto._
 import io.circe.parser._
-import io.circe.syntax._
+
 
 import scala.util.Success
 

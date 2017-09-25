@@ -1,8 +1,10 @@
 package com.andyczerwonka
 
 import com.softwaremill.sttp._
-import io.circe.parser.parse
+import io.circe.parser._
 import io.circe.{HCursor, Json}
+
+import scala.util.Try
 
 trait Helpers {
 
@@ -19,16 +21,21 @@ trait Helpers {
          |}
         """.stripMargin.getBytes("UTF-8")
 
+  // the post to Discord will reject the hook unless it includes valid User-Agent
+  val userAgent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+
   def discordUri(json: Json): Uri = {
     val cursor: HCursor = json.hcursor
-    val path = cursor.downField("pathParameters").downField("proxy").as[String].getOrElse("missing-id/missing-token")
+    val path = cursor.downField("pathParameters").downField("proxy").as[String].getOrElse(throw new Exception("missing proxy URL"))
     val Array(discordId, discordToken) = path.split("/")
     uri"https://discordapp.com/api/webhooks/$discordId/$discordToken"
   }
 
-  def extractJiraBody(json: Json) = {
-    val bodyString = json.hcursor.downField("body").as[String].getOrElse("")
-    parse(bodyString).getOrElse(Json.Null)
+  def extractJiraBody(json: Json): Try[Json] = {
+    Try {
+      val bodyString = json.hcursor.downField("body").as[String].getOrElse(throw new Exception("missing body"))
+      parse(bodyString).getOrElse(Json.Null)
+    }
   }
 
 }
