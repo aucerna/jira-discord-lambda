@@ -22,7 +22,7 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
         try {
           val title = s"${event.key}: ${event.summary}"
           val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
-          val msg = DiscordWebhook(title, event.url, desc, event.author()).asJson.noSpaces
+          val msg = DiscordWebhook(title, event.url, desc, event.author(), event.color()).asJson.noSpaces
           val request = sttp
             .contentType("application/json")
             .header("User-Agent", userAgent)

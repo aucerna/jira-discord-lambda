@@ -1,0 +1,186 @@
+{
+  "timestamp": 1508363725551,
+  "webhookEvent": "jira:issue_created",
+  "issue_event_type_name": "issue_created",
+  "user": {
+    "self": "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
+    "name": "andy.czerwonka",
+    "key": "aczerwonka",
+    "emailAddress": "andy.czerwonka@3esi-enersight.com",
+    "avatarUrls": {
+      "48x48": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48",
+      "24x24": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24",
+      "16x16": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16",
+      "32x32": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32"
+    },
+    "displayName": "Andy Czerwonka",
+    "active": true,
+    "timeZone": "America/Edmonton"
+  },
+  "issue": {
+    "id": "16255",
+    "self": "https://jira.3esi-enersight.com/rest/api/2/issue/16255",
+    "key": "MNG-2229",
+    "fields": {
+      "issuetype": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/issuetype/1",
+        "id": "1",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "iconUrl": "https://jira.3esi-enersight.com/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype",
+        "name": "Bug",
+        "subtask": false,
+        "avatarId": 10303
+      },
+      "timespent": null,
+      "project": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/project/10400",
+        "id": "10400",
+        "key": "MNG",
+        "name": "esi.manage",
+        "avatarUrls": {
+          "48x48": "https://jira.3esi-enersight.com/secure/projectavatar?pid=10400&avatarId=10802",
+          "24x24": "https://jira.3esi-enersight.com/secure/projectavatar?size=small&pid=10400&avatarId=10802",
+          "16x16": "https://jira.3esi-enersight.com/secure/projectavatar?size=xsmall&pid=10400&avatarId=10802",
+          "32x32": "https://jira.3esi-enersight.com/secure/projectavatar?size=medium&pid=10400&avatarId=10802"
+        },
+        "projectCategory": {
+          "self": "https://jira.3esi-enersight.com/rest/api/2/projectCategory/10000",
+          "id": "10000",
+          "description": "",
+          "name": "Commercial Products"
+        }
+      },
+      "fixVersions": [],
+      "aggregatetimespent": null,
+      "resolution": null,
+      "customfield_10500": null,
+      "customfield_10106": "0|i00ru7:",
+      "resolutiondate": null,
+      "workratio": -1,
+      "lastViewed": null,
+      "watches": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/issue/MNG-2229/watchers",
+        "watchCount": 0,
+        "isWatching": false
+      },
+      "created": "2017-10-18T15:55:25.379-0600",
+      "priority": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/priority/3",
+        "iconUrl": "https://jira.3esi-enersight.com/images/icons/priorities/minor.svg",
+        "name": "Should Have",
+        "id": "3"
+      },
+      "customfield_10101": null,
+      "customfield_10102": null,
+      "customfield_10300": null,
+      "labels": [],
+      "timeestimate": null,
+      "aggregatetimeoriginalestimate": null,
+      "versions": [],
+      "issuelinks": [],
+      "assignee": null,
+      "updated": "2017-10-18T15:55:25.379-0600",
+      "status": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/status/1",
+        "description": "The issue is open and ready for the assignee to start work on it.",
+        "iconUrl": "https://jira.3esi-enersight.com/images/icons/statuses/open.png",
+        "name": "New",
+        "id": "1",
+        "statusCategory": {
+          "self": "https://jira.3esi-enersight.com/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      },
+      "components": [],
+      "timeoriginalestimate": null,
+      "description": "Generating a JIRA webhook event.",
+      "timetracking": {},
+      "customfield_10203": null,
+      "customfield_10204": null,
+      "customfield_10600": null,
+      "customfield_10205": [
+        {
+          "self": "https://jira.3esi-enersight.com/rest/api/2/user?username=ayman.issa",
+          "name": "ayman.issa",
+          "key": "aissa",
+          "emailAddress": "aissa@3esi.com",
+          "avatarUrls": {
+            "48x48": "https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=48",
+            "24x24": "https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=24",
+            "16x16": "https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=16",
+            "32x32": "https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=32"
+          },
+          "displayName": "Ayman Issa",
+          "active": true,
+          "timeZone": "America/Denver"
+        }
+      ],
+      "attachment": [],
+      "aggregatetimeestimate": null,
+      "summary": "Test Bug Take 3",
+      "creator": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
+        "name": "andy.czerwonka",
+        "key": "aczerwonka",
+        "emailAddress": "andy.czerwonka@3esi-enersight.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48",
+          "24x24": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24",
+          "16x16": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16",
+          "32x32": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32"
+        },
+        "displayName": "Andy Czerwonka",
+        "active": true,
+        "timeZone": "America/Edmonton"
+      },
+      "subtasks": [],
+      "reporter": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
+        "name": "andy.czerwonka",
+        "key": "aczerwonka",
+        "emailAddress": "andy.czerwonka@3esi-enersight.com",
+        "avatarUrls": {
+          "48x48": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48",
+          "24x24": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24",
+          "16x16": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16",
+          "32x32": "https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32"
+        },
+        "displayName": "Andy Czerwonka",
+        "active": true,
+        "timeZone": "America/Edmonton"
+      },
+      "aggregateprogress": {
+        "progress": 0,
+        "total": 0
+      },
+      "customfield_10200": null,
+      "customfield_10202": null,
+      "environment": null,
+      "duedate": null,
+      "progress": {
+        "progress": 0,
+        "total": 0
+      },
+      "comment": {
+        "comments": [],
+        "maxResults": 0,
+        "total": 0,
+        "startAt": 0
+      },
+      "votes": {
+        "self": "https://jira.3esi-enersight.com/rest/api/2/issue/MNG-2229/votes",
+        "votes": 0,
+        "hasVoted": false
+      },
+      "worklog": {
+        "startAt": 0,
+        "maxResults": 20,
+        "total": 0,
+        "worklogs": []
+      }
+    }
+  }
+}

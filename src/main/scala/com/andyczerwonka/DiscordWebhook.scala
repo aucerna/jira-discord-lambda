@@ -22,9 +22,9 @@ object DiscordWebhook {
     * }
     */
 
-  def apply(title: String, url: String, description: String, author: String): DiscordWebhook = {
+  def apply(title: String, url: String, description: String, author: String, color: Int): DiscordWebhook = {
     val trimmedDesc = description.take(2048) // https://discordapp.com/developers/docs/resources/channel#embed-limits
-    val embeds = Array(Embeds(title, url, trimmedDesc, 4540783, Footer(author)))
+    val embeds = Array(Embeds(title, url, trimmedDesc, color, Footer(author)))
     DiscordWebhook("JIRA", "https://a.slack-edge.com/ae7f/plugins/jira/assets/service_512.png", embeds)
   }
 
