@@ -17,6 +17,12 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
     parse(bodyString).getOrElse(Json.Null)
   }
 
+  def parseJson(resourceName: String) = {
+    import scala.io.Source
+    val rawPayload = Source.fromResource(resourceName).mkString
+    parse(rawPayload).getOrElse(Json.Null)
+  }
+
   "The JIRA parser" should "generate a valid model on the created-comment event" in {
     val json = extractBody("create-comment.json")
     inside(JiraParser.parse(json)) { case Success(event) =>
@@ -32,6 +38,16 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
       event.summary shouldEqual "Tax Import Not Making Sense"
       event.eventTypeLabel shouldEqual "Comment Updated"
       event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-1234"
+    }
+  }
+
+  it should "also work for Karl" in {
+    val json = parseJson("create-comment-karl.json")
+    inside(JiraParser.parse(json)) { case Success(event) =>
+      event.summary shouldEqual "Analysis Settings Dialog does not preserve user settings in successive runs"
+      event.eventTypeLabel shouldEqual "Comment Created"
+      event.url shouldEqual "https://jira/browse/MNG-2206"
+      event.description shouldEqual "Hi fred"
     }
   }
 
