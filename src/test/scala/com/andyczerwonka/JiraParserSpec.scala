@@ -53,7 +53,7 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
 
   it should "generate events for newly created bugs" in {
     val json = parseJson("create-bug.json")
-    inside(JiraParser.parse(json)) { case Success(event) =>
+    inside(JiraParser.parse(json)) { case Success(event: BugCreatedEvent) =>
       event.summary shouldEqual "Test Bug Take 3"
       event.eventTypeLabel shouldEqual "Bug Created"
       event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-2229"
