@@ -45,8 +45,21 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
     val json = parseJson("create-comment-karl.json")
     inside(JiraParser.parse(json)) { case Success(event) =>
       event.summary shouldEqual "Analysis Settings Dialog does not preserve user settings in successive runs"
+      event.author shouldEqual "Karl Martens"
       event.eventTypeLabel shouldEqual "Comment Created"
       event.url shouldEqual "https://jira/browse/MNG-2206"
+      event.description shouldEqual "Hi fred"
+    }
+  }
+
+  // see https://getsupport.atlassian.com/servicedesk/customer/portal/23/JST-348034
+  it should "also work for for the new JIRA cloud version" in {
+    val json = parseJson("jira-cloud-update.json")
+    inside(JiraParser.parse(json)) { case Success(event) =>
+      event.summary shouldEqual "Import should validate selection constraints values to be non-negative numbers"
+      event.author shouldEqual "Shivalee Kaul"
+      event.eventTypeLabel shouldEqual "Comment Created"
+      event.url shouldEqual "https://enersight.atlassian.net/browse/SP-1522"
       event.description shouldEqual "Hi fred"
     }
   }
@@ -55,6 +68,7 @@ class JiraParserSpec extends FlatSpec with Matchers with Inside {
     val json = parseJson("create-bug.json")
     inside(JiraParser.parse(json)) { case Success(event: BugCreatedEvent) =>
       event.summary shouldEqual "Test Bug Take 3"
+      event.author shouldEqual "Andy Czerwonka"
       event.eventTypeLabel shouldEqual "Bug Created"
       event.url shouldEqual "https://jira.3esi-enersight.com/browse/MNG-2229"
       event.description shouldEqual "Generating a JIRA webhook event."
