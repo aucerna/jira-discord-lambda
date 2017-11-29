@@ -15,23 +15,25 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
     val logger = context.getLogger
     val rawJson = scala.io.Source.fromInputStream(input).getLines().mkString("\n")
     val jsonDoc = parse(rawJson).getOrElse(Json.Null)
-    extractJiraBody(jsonDoc) map { json =>
-      logger.log(json.spaces2)
-      JiraParser.parse(json) map { event =>
-        implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
-        try {
-          val title = s"${event.key}: ${event.summary}"
-          val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
-          val msg = DiscordWebhook(title, event.url, desc, event.author(), event.color()).asJson.noSpaces
-          val request = sttp
-            .contentType("application/json")
-            .header("User-Agent", userAgent)
-            .body(msg)
-            .post(discordUri(jsonDoc))
-          request.send()
-          output.write(ok)
-        } finally {
-          backend.close()
+    extractIssueKey(jsonDoc) map { issueKey =>
+      extractJiraBody(jsonDoc) map { json =>
+        logger.log(json.spaces2)
+        JiraParser.parse(issueKey, json) map { event =>
+          implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
+          try {
+            val title = s"${event.key}: ${event.summary}"
+            val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
+            val msg = DiscordWebhook(title, event.url, desc, event.author(), event.color()).asJson.noSpaces
+            val request = sttp
+              .contentType("application/json")
+              .header("User-Agent", userAgent)
+              .body(msg)
+              .post(discordUri(jsonDoc))
+            request.send()
+            output.write(ok)
+          } finally {
+            backend.close()
+          }
         }
       }
     }

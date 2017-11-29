@@ -31,6 +31,13 @@ trait Helpers {
     uri"https://discordapp.com/api/webhooks/$discordId/$discordToken"
   }
 
+  def extractIssueKey(json: Json): Try[String] = {
+    Try {
+      json.hcursor.downField("queryStringParameters")
+        .downField("issue").as[String].getOrElse(throw new Exception("missing issue query string parameter"))
+    }
+  }
+
   def extractJiraBody(json: Json): Try[Json] = {
     Try {
       val bodyString = json.hcursor.downField("body").as[String].getOrElse(throw new Exception("missing body"))

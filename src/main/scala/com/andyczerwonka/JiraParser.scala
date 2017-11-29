@@ -4,23 +4,21 @@ import io.circe.{HCursor, Json}
 
 import scala.util.{Success, Try}
 
-abstract class JiraEvent(val eventTypeLabel: String, cursor: HCursor) {
-  val key = cursor.downField("issue").downField("key").as[String].getOrElse(throw new Exception("key not found"))
-  val url = {
-    val uriString = cursor.downField("issue").downField("self").as[String].getOrElse(throw new Exception("url not found"))
-    val root = uriString.split("/").take(3).mkString("/")
-    s"$root/browse/$key"
-  }
-  val summary = cursor
-    .downField("issue")
-    .downField("fields")
-    .downField("summary").as[String].getOrElse(throw new Exception("title not found"))
+abstract class JiraEvent(val key: String, val eventTypeLabel: String, cursor: HCursor) {
+  def summary(): String
+  def url(): String
   def description(): String
   def author(): String
   def color(): Int
 }
 
-class CommentEvent(event: String, cursor: HCursor) extends JiraEvent(event, cursor) {
+class CommentEvent(key: String, event: String, cursor: HCursor) extends JiraEvent(key, event, cursor) {
+  val summary = event
+  val url = {
+    val uriString = cursor.downField("comment").downField("self").as[String].getOrElse(throw new Exception("url not found"))
+    val root = uriString.split("/").take(3).mkString("/")
+    s"$root/browse/$key"
+  }
   override val description = cursor
     .downField("comment")
     .downField("body").as[String].getOrElse("Missing Comment")
@@ -33,7 +31,16 @@ class CommentEvent(event: String, cursor: HCursor) extends JiraEvent(event, curs
   override val color = 4540783
 }
 
-class BugCreatedEvent(cursor: HCursor) extends JiraEvent("Bug Created", cursor) {
+class BugCreatedEvent(key: String, cursor: HCursor) extends JiraEvent(key, "Bug Created", cursor) {
+  val summary = cursor
+    .downField("issue")
+    .downField("fields")
+    .downField("summary").as[String].getOrElse(throw new Exception("title not found"))
+  val url = {
+    val uriString = cursor.downField("issue").downField("self").as[String].getOrElse(throw new Exception("url not found"))
+    val root = uriString.split("/").take(3).mkString("/")
+    s"$root/browse/$key"
+  }
   override val description = cursor
     .downField("issue")
     .downField("fields")
@@ -59,13 +66,13 @@ object JiraParser {
     issyeType == "Bug"
   }
 
-  def parse(body: Json): Try[JiraEvent] = {
+  def parse(issueKey: String, body: Json): Try[JiraEvent] = {
     Try {
       val cursor: HCursor = body.hcursor
-      cursor.downField("issue_event_type_name").as[String].getOrElse("") match {
-        case "issue_created" if isBug(cursor) => new BugCreatedEvent(cursor)
-        case "issue_commented" => new CommentEvent("Comment Created", cursor)
-        case "issue_comment_edited" => new CommentEvent("Comment Updated", cursor)
+      cursor.downField("webhookEvent").as[String].getOrElse("") match {
+        case "jira:issue_created" if isBug(cursor) => new BugCreatedEvent(issueKey, cursor)
+        case "comment_created" => new CommentEvent(issueKey, "Comment Created", cursor)
+        case "comment_updated" => new CommentEvent(issueKey, "Comment Updated", cursor)
         case et @ _ => throw new Exception(s"$et is an event that we don't handle")
       }
     }
