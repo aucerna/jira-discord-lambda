@@ -1,6 +1,8 @@
 import Dependencies._
 
-javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
+javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint", "-deprecation")
+
+scalaVersion := "2.12.4"
 
 lazy val root = (project in file(".")).
   settings(
@@ -28,4 +30,3 @@ lazy val root = (project in file(".")).
       }
 
   )
-
