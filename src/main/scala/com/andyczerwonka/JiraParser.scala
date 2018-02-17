@@ -62,10 +62,10 @@ object JiraParser {
   def parse(body: Json): Try[JiraEvent] = {
     Try {
       val cursor: HCursor = body.hcursor
-      cursor.downField("issue_event_type_name").as[String].getOrElse("") match {
-        case "issue_created" if isBug(cursor) => new BugCreatedEvent(cursor)
-        case "issue_commented" => new CommentEvent("Comment Created", cursor)
-        case "issue_comment_edited" => new CommentEvent("Comment Updated", cursor)
+      cursor.downField("webhookEvent").as[String].getOrElse("") match {
+        case "jira:issue_created" if isBug(cursor) => new BugCreatedEvent(cursor)
+        case "comment_created" => new CommentEvent("Comment Created", cursor)
+        case "comment_updated" => new CommentEvent("Comment Updated", cursor)
         case et @ _ => throw new Exception(s"$et is an event that we don't handle")
       }
     }

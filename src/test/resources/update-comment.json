@@ -1,57 +1,107 @@
 {
-  "resource": "/{proxy+}",
-  "path": "/360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq",
-  "httpMethod": "POST",
-  "headers": {
-    "Accept": "*/*",
-    "CloudFront-Forwarded-Proto": "https",
-    "CloudFront-Is-Desktop-Viewer": "true",
-    "CloudFront-Is-Mobile-Viewer": "false",
-    "CloudFront-Is-SmartTV-Viewer": "false",
-    "CloudFront-Is-Tablet-Viewer": "false",
-    "CloudFront-Viewer-Country": "CA",
-    "Content-Type": "application/json; charset=UTF-8",
-    "Host": "abjo5p3lkc.execute-api.us-west-2.amazonaws.com",
-    "User-Agent": "Atlassian HttpClient 0.23.3 / JIRA-7.3.6 (73017) / Default",
-    "Via": "1.1 localhost (Apache-HttpClient/4.4.1 (cache)), 1.1 3212ba6c9a2d0009095ca19f00206ff3.cloudfront.net (CloudFront)",
-    "X-Amz-Cf-Id": "wyCvhLIZBHuBXlqEYUnusM-nFhcJ5ENtYTgI9TquT48U5qDr2-4abw==",
-    "X-Amzn-Trace-Id": "Root=1-59c7d187-416fb2033f96bd7455ac783f",
-    "X-Forwarded-For": "172.110.73.244, 54.182.238.7",
-    "X-Forwarded-Port": "443",
-    "X-Forwarded-Proto": "https"
-  },
-  "queryStringParameters": {
-    "user_id": "andy.czerwonka",
-    "user_key": "aczerwonka"
-  },
-  "pathParameters": {
-    "proxy": "360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq"
-  },
-  "stageVariables": null,
-  "requestContext": {
-    "path": "/prod/360797467106607104/MniE01hbWYGYqLlXQCxiaBYPZeioHBYLokynwRMW5uj3NWeXceJ6-b5SWtOZOtZatfKq",
-    "accountId": "751359587126",
-    "resourceId": "a4kjc8",
-    "stage": "prod",
-    "requestId": "746ffd7c-a13e-11e7-974c-f59fdb303ea6",
-    "identity": {
-      "cognitoIdentityPoolId": null,
-      "accountId": null,
-      "cognitoIdentityId": null,
-      "caller": null,
-      "apiKey": "",
-      "sourceIp": "172.110.73.244",
-      "accessKey": null,
-      "cognitoAuthenticationType": null,
-      "cognitoAuthenticationProvider": null,
-      "userArn": null,
-      "userAgent": "Atlassian HttpClient 0.23.3 / JIRA-7.3.6 (73017) / Default",
-      "user": null
+  "timestamp": 1518878004243,
+  "webhookEvent": "comment_updated",
+  "comment": {
+    "self": "https://enersight.atlassian.net/rest/api/2/issue/51843/comment/57484",
+    "id": "57484",
+    "author": {
+      "self": "https://enersight.atlassian.net/rest/api/2/user?username=andy.czerwonka",
+      "name": "andy.czerwonka",
+      "key": "andy.czerwonka",
+      "accountId": "557058:84ed2d39-6edf-42dc-815d-337057442aa4",
+      "avatarUrls": {
+        "48x48": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=48&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3FownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "24x24": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=24&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "16x16": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=16&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dxsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "32x32": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=32&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dmedium%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue"
+      },
+      "displayName": "Andy Czerwonka",
+      "active": true,
+      "timeZone": "America/Edmonton"
     },
-    "resourcePath": "/{proxy+}",
-    "httpMethod": "POST",
-    "apiId": "abjo5p3lkc"
+    "body": "Testing JIRA comments\r\nLet's update this comment",
+    "updateAuthor": {
+      "self": "https://enersight.atlassian.net/rest/api/2/user?username=andy.czerwonka",
+      "name": "andy.czerwonka",
+      "key": "andy.czerwonka",
+      "accountId": "557058:84ed2d39-6edf-42dc-815d-337057442aa4",
+      "avatarUrls": {
+        "48x48": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=48&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3FownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "24x24": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=24&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "16x16": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=16&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dxsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+        "32x32": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=32&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dmedium%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue"
+      },
+      "displayName": "Andy Czerwonka",
+      "active": true,
+      "timeZone": "America/Edmonton"
+    },
+    "created": "2018-02-17T08:03:44.202-0600",
+    "updated": "2018-02-17T08:33:24.243-0600"
   },
-  "body": "{\"timestamp\":1506267526384,\"webhookEvent\":\"jira:issue_updated\",\"issue_event_type_name\":\"issue_comment_edited\",\"user\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"issue\":{\"id\":\"14556\",\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/14556\",\"key\":\"MNG-1234\",\"fields\":{\"issuetype\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issuetype/1\",\"id\":\"1\",\"description\":\"A problem which impairs or prevents the functions of the product.\",\"iconUrl\":\"https://jira.3esi-enersight.com/secure/viewavatar?size=xsmall&avatarId=10303&avatarType=issuetype\",\"name\":\"Bug\",\"subtask\":false,\"avatarId\":10303},\"timespent\":null,\"project\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/project/10400\",\"id\":\"10400\",\"key\":\"MNG\",\"name\":\"esi.manage\",\"avatarUrls\":{\"48x48\":\"https://jira.3esi-enersight.com/secure/projectavatar?pid=10400&avatarId=10802\",\"24x24\":\"https://jira.3esi-enersight.com/secure/projectavatar?size=small&pid=10400&avatarId=10802\",\"16x16\":\"https://jira.3esi-enersight.com/secure/projectavatar?size=xsmall&pid=10400&avatarId=10802\",\"32x32\":\"https://jira.3esi-enersight.com/secure/projectavatar?size=medium&pid=10400&avatarId=10802\"},\"projectCategory\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/projectCategory/10000\",\"id\":\"10000\",\"description\":\"\",\"name\":\"Commercial Products\"}},\"fixVersions\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/version/10802\",\"id\":\"10802\",\"name\":\"3.25.0\",\"archived\":false,\"released\":true,\"releaseDate\":\"2016-10-03\"}],\"aggregatetimespent\":null,\"resolution\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/resolution/10102\",\"id\":\"10102\",\"description\":\"The problem is not really a problem and will never be fixed\",\"name\":\"Invalid\"},\"customfield_10500\":null,\"customfield_10106\":\"0|i00j33:\",\"resolutiondate\":\"2016-08-14T11:20:08.640-0600\",\"workratio\":-1,\"lastViewed\":\"2017-09-24T09:38:35.024-0600\",\"watches\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/MNG-1234/watchers\",\"watchCount\":3,\"isWatching\":true},\"created\":\"2016-08-12T15:19:52.457-0600\",\"priority\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/priority/3\",\"iconUrl\":\"https://jira.3esi-enersight.com/images/icons/priorities/minor.svg\",\"name\":\"Should Have\",\"id\":\"3\"},\"customfield_10101\":null,\"customfield_10102\":null,\"customfield_10300\":null,\"labels\":[\"Import\"],\"timeestimate\":null,\"aggregatetimeoriginalestimate\":null,\"versions\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/version/10802\",\"id\":\"10802\",\"name\":\"3.25.0\",\"archived\":false,\"released\":true,\"releaseDate\":\"2016-10-03\"}],\"issuelinks\":[],\"assignee\":null,\"updated\":\"2017-09-24T09:07:58.210-0600\",\"status\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/status/6\",\"description\":\"The issue is considered finished, the resolution is correct. Issues which are closed can be reopened.\",\"iconUrl\":\"https://jira.3esi-enersight.com/images/icons/statuses/closed.png\",\"name\":\"Closed\",\"id\":\"6\",\"statusCategory\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/statuscategory/3\",\"id\":3,\"key\":\"done\",\"colorName\":\"green\",\"name\":\"Done\"}},\"components\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/component/11000\",\"id\":\"11000\",\"name\":\"Enersight Integration\"}],\"timeoriginalestimate\":null,\"description\":\"A few things about mapping the tax values in from Enersight to Esi.Manage:\\n\\n1. Asset level tax information does not import for opportunities with only capital. \\n\\n2. The Asset level tax that does come through for opportunities with a PDS grouping key are nonsensical. I do not know how these values were determined upon import.\\n\\n3. The Asset level tax will compound with default tax from the fiscal model configuration. I assumed that the asset level tax would override the higher level taxes.\\n\\nMy current solution is to # out the tax part of the import file and just use the default taxes under configuration only.\\n\",\"timetracking\":{},\"customfield_10203\":null,\"customfield_10204\":null,\"customfield_10600\":null,\"customfield_10205\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=ayman.issa\",\"name\":\"ayman.issa\",\"key\":\"aissa\",\"emailAddress\":\"aissa@3esi.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/99ce5bd49ae52bfb8001c7da42b88d80?d=mm&s=32\"},\"displayName\":\"Ayman Issa\",\"active\":true,\"timeZone\":\"America/Denver\"}],\"attachment\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/attachment/13074\",\"id\":\"13074\",\"filename\":\"2016-08-12_16-00-15.png\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"created\":\"2016-08-12T15:19:52.473-0600\",\"size\":73512,\"mimeType\":\"image/png\",\"content\":\"https://jira.3esi-enersight.com/secure/attachment/13074/2016-08-12_16-00-15.png\",\"thumbnail\":\"https://jira.3esi-enersight.com/secure/thumbnail/13074/_thumb_13074.png\"},{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/attachment/13075\",\"id\":\"13075\",\"filename\":\"2016-08-12_16-01-20.png\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"created\":\"2016-08-12T15:19:52.473-0600\",\"size\":102241,\"mimeType\":\"image/png\",\"content\":\"https://jira.3esi-enersight.com/secure/attachment/13075/2016-08-12_16-01-20.png\",\"thumbnail\":\"https://jira.3esi-enersight.com/secure/thumbnail/13075/_thumb_13075.png\"},{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/attachment/13076\",\"id\":\"13076\",\"filename\":\"2016-08-12_16-01-46.png\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"created\":\"2016-08-12T15:19:52.490-0600\",\"size\":61559,\"mimeType\":\"image/png\",\"content\":\"https://jira.3esi-enersight.com/secure/attachment/13076/2016-08-12_16-01-46.png\",\"thumbnail\":\"https://jira.3esi-enersight.com/secure/thumbnail/13076/_thumb_13076.png\"},{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/attachment/13077\",\"id\":\"13077\",\"filename\":\"2016-08-12_16-07-10.png\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"created\":\"2016-08-12T15:19:52.490-0600\",\"size\":136120,\"mimeType\":\"image/png\",\"content\":\"https://jira.3esi-enersight.com/secure/attachment/13077/2016-08-12_16-07-10.png\",\"thumbnail\":\"https://jira.3esi-enersight.com/secure/thumbnail/13077/_thumb_13077.png\"},{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/attachment/13078\",\"id\":\"13078\",\"filename\":\"2016-08-12_16-07-54.png\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"created\":\"2016-08-12T15:19:52.507-0600\",\"size\":52264,\"mimeType\":\"image/png\",\"content\":\"https://jira.3esi-enersight.com/secure/attachment/13078/2016-08-12_16-07-54.png\",\"thumbnail\":\"https://jira.3esi-enersight.com/secure/thumbnail/13078/_thumb_13078.png\"}],\"aggregatetimeestimate\":null,\"summary\":\"Tax Import Not Making Sense\",\"creator\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"subtasks\":[],\"reporter\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Calvin.Eberle\",\"name\":\"Calvin.Eberle\",\"key\":\"calvin.eberle\",\"emailAddress\":\"Calvin.Eberle@3esi-Enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/ccb302a704626ced90e99f503615692e?d=mm&s=32\"},\"displayName\":\"Calvin Eberle\",\"active\":true,\"timeZone\":\"America/Denver\"},\"aggregateprogress\":{\"progress\":0,\"total\":0},\"customfield_10200\":null,\"customfield_10202\":null,\"environment\":null,\"duedate\":null,\"progress\":{\"progress\":0,\"total\":0},\"comment\":{\"comments\":[{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/14556/comment/17843\",\"id\":\"17843\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Predrag.Stanar\",\"name\":\"Predrag.Stanar\",\"key\":\"ID10120\",\"emailAddress\":\"predrag.stanar@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://jira.3esi-enersight.com/secure/useravatar?ownerId=ID10120&avatarId=11100\",\"24x24\":\"https://jira.3esi-enersight.com/secure/useravatar?size=small&ownerId=ID10120&avatarId=11100\",\"16x16\":\"https://jira.3esi-enersight.com/secure/useravatar?size=xsmall&ownerId=ID10120&avatarId=11100\",\"32x32\":\"https://jira.3esi-enersight.com/secure/useravatar?size=medium&ownerId=ID10120&avatarId=11100\"},\"displayName\":\"Predrag Stanar\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"body\":\"{quote}1. Asset level tax information does not import for opportunities with only capital.{quote}\\nI would expect this to be the case, since enersight exports effective tax. You did not earn anything (spend only), therefore you did not pay any tax.\\n\\n{quote}2. The Asset level tax that does come through for opportunities with a PDS grouping key are nonsensical. I do not know how these values were determined upon import.{quote}\\nThe best course of action is to enter this issue into enersigh jira. enersight developers are best suited to answer this question.\\n\\n{quote}3. The Asset level tax will compound with default tax from the fiscal model configuration. I assumed that the asset level tax would override the higher level taxes.{quote}\\nCorrect. That's esi.manage tax model. But, at this point in time, where we get total effective tax from enersight, esi.manage user would use jurisdiction with no tax, since all tax will be calculated from asset level.\\n\\nLet me know if my conclusions are wrong, so we can reopen this issue.\",\"updateAuthor\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=Predrag.Stanar\",\"name\":\"Predrag.Stanar\",\"key\":\"ID10120\",\"emailAddress\":\"predrag.stanar@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://jira.3esi-enersight.com/secure/useravatar?ownerId=ID10120&avatarId=11100\",\"24x24\":\"https://jira.3esi-enersight.com/secure/useravatar?size=small&ownerId=ID10120&avatarId=11100\",\"16x16\":\"https://jira.3esi-enersight.com/secure/useravatar?size=xsmall&ownerId=ID10120&avatarId=11100\",\"32x32\":\"https://jira.3esi-enersight.com/secure/useravatar?size=medium&ownerId=ID10120&avatarId=11100\"},\"displayName\":\"Predrag Stanar\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"created\":\"2016-08-14T11:19:57.403-0600\",\"updated\":\"2016-08-14T11:19:57.403-0600\"},{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/14556/comment/21581\",\"id\":\"21581\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"body\":\"Testing the JIRA->Discord machinery.\\r\\nUpdating this comment.\\r\\nAnother Update\",\"updateAuthor\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"created\":\"2017-09-24T09:01:05.167-0600\",\"updated\":\"2017-09-24T09:38:46.353-0600\"}],\"maxResults\":2,\"total\":2,\"startAt\":0},\"votes\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/MNG-1234/votes\",\"votes\":0,\"hasVoted\":false},\"worklog\":{\"startAt\":0,\"maxResults\":20,\"total\":0,\"worklogs\":[]}}},\"comment\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/issue/14556/comment/21581\",\"id\":\"21581\",\"author\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"body\":\"Testing the JIRA->Discord machinery.\\r\\nUpdating this comment.\\r\\nAnother Update\",\"updateAuthor\":{\"self\":\"https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka\",\"name\":\"andy.czerwonka\",\"key\":\"aczerwonka\",\"emailAddress\":\"andy.czerwonka@3esi-enersight.com\",\"avatarUrls\":{\"48x48\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=48\",\"24x24\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=24\",\"16x16\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=16\",\"32x32\":\"https://secure.gravatar.com/avatar/1a0c3df2aca627630d610a51d511ca00?d=mm&s=32\"},\"displayName\":\"Andy Czerwonka\",\"active\":true,\"timeZone\":\"America/Edmonton\"},\"created\":\"2017-09-24T09:01:05.167-0600\",\"updated\":\"2017-09-24T09:38:46.352-0600\"}}",
-  "isBase64Encoded": false
+  "issue": {
+    "id": "51843",
+    "self": "https://enersight.atlassian.net/rest/api/2/issue/51843",
+    "key": "CDM-7",
+    "fields": {
+      "summary": "tech spike: persistence strategy for CDM",
+      "issuetype": {
+        "self": "https://enersight.atlassian.net/rest/api/2/issuetype/10200",
+        "id": "10200",
+        "description": "A task that needs to be done.",
+        "iconUrl": "https://enersight.atlassian.net/secure/viewavatar?size=xsmall&avatarId=11800&avatarType=issuetype",
+        "name": "Task",
+        "subtask": false,
+        "avatarId": 11800
+      },
+      "project": {
+        "self": "https://enersight.atlassian.net/rest/api/2/project/11403",
+        "id": "11403",
+        "key": "CDM",
+        "name": "Platform CDM",
+        "projectTypeKey": "software",
+        "avatarUrls": {
+          "48x48": "https://enersight.atlassian.net/secure/projectavatar?pid=11403&avatarId=15002",
+          "24x24": "https://enersight.atlassian.net/secure/projectavatar?size=small&pid=11403&avatarId=15002",
+          "16x16": "https://enersight.atlassian.net/secure/projectavatar?size=xsmall&pid=11403&avatarId=15002",
+          "32x32": "https://enersight.atlassian.net/secure/projectavatar?size=medium&pid=11403&avatarId=15002"
+        }
+      },
+      "assignee": {
+        "self": "https://enersight.atlassian.net/rest/api/2/user?username=andy.czerwonka",
+        "name": "andy.czerwonka",
+        "key": "andy.czerwonka",
+        "accountId": "557058:84ed2d39-6edf-42dc-815d-337057442aa4",
+        "emailAddress": "andy.czerwonka@3esi-enersight.com",
+        "avatarUrls": {
+          "48x48": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=48&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3FownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+          "24x24": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=24&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+          "16x16": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=16&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dxsmall%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue",
+          "32x32": "https://avatar-cdn.atlassian.com/1a0c3df2aca627630d610a51d511ca00?s=32&d=https%3A%2F%2Fenersight.atlassian.net%2Fsecure%2Fuseravatar%3Fsize%3Dmedium%26ownerId%3Dandy.czerwonka%26avatarId%3D13800%26noRedirect%3Dtrue"
+        },
+        "displayName": "Andy Czerwonka",
+        "active": true,
+        "timeZone": "America/Edmonton"
+      },
+      "priority": {
+        "self": "https://enersight.atlassian.net/rest/api/2/priority/4",
+        "iconUrl": "https://enersight.atlassian.net/images/icons/priorities/minor.svg",
+        "name": "Minor",
+        "id": "4"
+      },
+      "status": {
+        "self": "https://enersight.atlassian.net/rest/api/2/status/11200",
+        "description": "",
+        "iconUrl": "https://enersight.atlassian.net/",
+        "name": "Selected for Development",
+        "id": "11200",
+        "statusCategory": {
+          "self": "https://enersight.atlassian.net/rest/api/2/statuscategory/2",
+          "id": 2,
+          "key": "new",
+          "colorName": "blue-gray",
+          "name": "To Do"
+        }
+      }
+    }
+  }
 }
