@@ -2,7 +2,7 @@ package com.andyczerwonka
 
 import io.circe.{HCursor, Json}
 
-import scala.util.{Success, Try}
+import scala.util.Try
 
 abstract class JiraEvent(val eventTypeLabel: String, cursor: HCursor) {
   val key = cursor.downField("issue").downField("key").as[String].getOrElse(throw new Exception("key not found"))
@@ -15,6 +15,7 @@ abstract class JiraEvent(val eventTypeLabel: String, cursor: HCursor) {
     .downField("issue")
     .downField("fields")
     .downField("summary").as[String].getOrElse(throw new Exception("title not found"))
+
   def description(): String
   def author(): String
   def color(): Int
@@ -50,7 +51,7 @@ class BugCreatedEvent(cursor: HCursor) extends JiraEvent("Bug Created", cursor) 
 
 object JiraParser {
 
-  def isBug(cursor: HCursor) = {
+  private def isBug(cursor: HCursor) = {
     val issyeType = cursor
       .downField("issue")
       .downField("fields")
@@ -60,15 +61,14 @@ object JiraParser {
   }
 
   def parse(body: Json): Try[JiraEvent] = {
-    Try {
-      val cursor: HCursor = body.hcursor
-      cursor.downField("webhookEvent").as[String].getOrElse("") match {
-        case "jira:issue_created" if isBug(cursor) => new BugCreatedEvent(cursor)
-        case "comment_created" => new CommentEvent("Comment Created", cursor)
-        case "comment_updated" => new CommentEvent("Comment Updated", cursor)
-        case et @ _ => throw new Exception(s"$et is an event that we don't handle")
-      }
+    val cursor: HCursor = body.hcursor
+    val event = cursor.downField("webhookEvent").as[String] map {
+      case "jira:issue_created" if isBug(cursor) => new BugCreatedEvent(cursor)
+      case "comment_created" => new CommentEvent("Comment Created", cursor)
+      case "comment_updated" => new CommentEvent("Comment Updated", cursor)
+      case et@_ => throw new Exception(s"$et is an event that we don't handle")
     }
+    event.toTry
   }
 
 }
