@@ -20,9 +20,10 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
       JiraParser.parse(json) map { event =>
         implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
         try {
-          val title = s"${event.key}: ${event.summary}"
+          val title = s"[${event.key}] ${event.summary}"
           val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
-          val msg = DiscordWebhook(title, event.url, desc, event.author(), event.color()).asJson.noSpaces
+          var foot = s"${event.typename} | ${event.author()}"
+          val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), event.icon, event.avatar()).asJson.noSpaces
           val request = sttp
             .contentType("application/json")
             .header("User-Agent", userAgent)
