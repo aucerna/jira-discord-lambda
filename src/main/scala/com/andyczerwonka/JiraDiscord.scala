@@ -23,14 +23,26 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
           val title = s"[${event.key}] ${event.summary}"
           val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
           var foot = s"${event.typename} | ${event.author()}"
-          val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), event.icon, event.avatar()).asJson.noSpaces
-          val request = sttp
-            .contentType("application/json")
-            .header("User-Agent", userAgent)
-            .body(msg)
-            .post(discordUri(jsonDoc))
-          request.send()
-          output.write(ok)
+          if (event.typename == "Bug") {
+            var icon = s"https://raw.githubusercontent.com/ChipWolf/jira-discord-lambda/master/bug.png"
+            val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), icon, event.avatar()).asJson.noSpaces
+            val request = sttp
+              .contentType("application/json")
+              .header("User-Agent", userAgent)
+              .body(msg)
+              .post(discordUri(jsonDoc))
+            request.send()
+            output.write(ok)
+          } else {
+            val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), event.icon, event.avatar()).asJson.noSpaces
+            val request = sttp
+              .contentType("application/json")
+              .header("User-Agent", userAgent)
+              .body(msg)
+              .post(discordUri(jsonDoc))
+            request.send()
+            output.write(ok)
+          }
         } finally {
           backend.close()
         }

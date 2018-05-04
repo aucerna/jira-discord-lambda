@@ -9,4 +9,3 @@ lib_managed
 out
 
 .serverless
-serverless.yml

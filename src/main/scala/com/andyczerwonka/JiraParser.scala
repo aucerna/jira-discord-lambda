@@ -15,16 +15,16 @@ abstract class JiraEvent(val eventTypeLabel: String, cursor: HCursor) {
     .downField("issue")
     .downField("fields")
     .downField("summary").as[String].getOrElse(throw new Exception("title not found"))
-  val icon = cursor
-    .downField("issue")
-    .downField("fields")
-    .downField("issuetype")
-    .downField("iconUrl").as[String].getOrElse(throw new Exception("icon not found"))
   val typename = cursor
     .downField("issue")
     .downField("fields")
     .downField("issuetype")
     .downField("name").as[String].getOrElse(throw new Exception("type not found"))
+  val icon = cursor
+    .downField("issue")
+    .downField("fields")
+    .downField("issuetype")
+    .downField("iconUrl").as[String].getOrElse(throw new Exception("icon not found"))
 
   def description(): String
   def author(): String
