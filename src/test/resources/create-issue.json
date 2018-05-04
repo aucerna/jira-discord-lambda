@@ -120,7 +120,7 @@
       ],
       "attachment": [],
       "aggregatetimeestimate": null,
-      "summary": "Test Bug Take 3",
+      "summary": "Test Issue Take 3",
       "creator": {
         "self": "https://jira.3esi-enersight.com/rest/api/2/user?username=andy.czerwonka",
         "name": "andy.czerwonka",

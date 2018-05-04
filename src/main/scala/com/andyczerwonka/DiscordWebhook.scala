@@ -1,7 +1,8 @@
 package com.andyczerwonka
 
-case class Footer(text: String)
-case class Embeds(title: String, url: String, description: String, color: Int, footer: Footer)
+case class Thumbnail(url: String)
+case class Footer(text: String, icon_url: String)
+case class Embeds(title: String, url: String, description: String, color: Int, thumbnail: Thumbnail, footer: Footer)
 case class DiscordWebhook(username: String, avatar_url: String, embeds: Array[Embeds])
 
 object DiscordWebhook {
@@ -22,9 +23,9 @@ object DiscordWebhook {
     * }
     */
 
-  def apply(title: String, url: String, description: String, author: String, color: Int): DiscordWebhook = {
+  def apply(title: String, url: String, description: String, author: String, color: Int, icon: String, avatar: String): DiscordWebhook = {
     val trimmedDesc = description.take(2048) // https://discordapp.com/developers/docs/resources/channel#embed-limits
-    val embeds = Array(Embeds(title, url, trimmedDesc, color, Footer(author)))
+    val embeds = Array(Embeds(title, url, trimmedDesc, color, Thumbnail(avatar), Footer(author, icon)))
     DiscordWebhook("JIRA", "https://a.slack-edge.com/ae7f/plugins/jira/assets/service_512.png", embeds)
   }
 

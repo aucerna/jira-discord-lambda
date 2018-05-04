@@ -7,3 +7,5 @@ lib_managed
 *.iws
 .idea
 out
+
+.serverless

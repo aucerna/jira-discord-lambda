@@ -20,16 +20,29 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
       JiraParser.parse(json) map { event =>
         implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
         try {
-          val title = s"${event.key}: ${event.summary}"
-          val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
-          val msg = DiscordWebhook(title, event.url, desc, event.author(), event.color()).asJson.noSpaces
-          val request = sttp
-            .contentType("application/json")
-            .header("User-Agent", userAgent)
-            .body(msg)
-            .post(discordUri(jsonDoc))
-          request.send()
-          output.write(ok)
+          val title = s"[${event.key}] ${event.summary}"
+          val desc = s"**${event.eventTypeLabel}**\n${event.description()}\n\n**Status**\n${event.status}"
+          var foot = s"${event.typename} | ${event.author()}"
+          if (event.typename == "Bug") {
+            var icon = s"https://raw.githubusercontent.com/ChipWolf/jira-discord-lambda/master/bug.png"
+            val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), icon, event.avatar()).asJson.noSpaces
+            val request = sttp
+              .contentType("application/json")
+              .header("User-Agent", userAgent)
+              .body(msg)
+              .post(discordUri(jsonDoc))
+            request.send()
+            output.write(ok)
+          } else {
+            val msg = DiscordWebhook(title, event.url, desc, foot, event.color(), event.icon, event.avatar()).asJson.noSpaces
+            val request = sttp
+              .contentType("application/json")
+              .header("User-Agent", userAgent)
+              .body(msg)
+              .post(discordUri(jsonDoc))
+            request.send()
+            output.write(ok)
+          }
         } finally {
           backend.close()
         }

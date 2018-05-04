@@ -1,0 +1,17 @@
+service: jira-discord
+
+provider:
+  name: aws
+  runtime: java8
+  region: eu-west-1
+
+package:
+  artifact: target\scala-2.12\jira-discord-lambda-assembly-0.1.0-SNAPSHOT.jar 
+
+functions:
+  webhook:
+    handler: com.andyczerwonka.JiraDiscord
+    events:
+      - http:
+          path: /{proxy+}
+          method: post
