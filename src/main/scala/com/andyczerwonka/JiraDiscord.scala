@@ -21,7 +21,7 @@ class JiraDiscord extends RequestStreamHandler with Helpers {
         implicit val backend: SttpBackend[Id, Nothing] = HttpURLConnectionBackend()
         try {
           val title = s"[${event.key}] ${event.summary}"
-          val desc = s"**${event.eventTypeLabel}**\n${event.description()}"
+          val desc = s"**${event.eventTypeLabel}**\n${event.description()}\n\n**Status**\n${event.status}"
           var foot = s"${event.typename} | ${event.author()}"
           if (event.typename == "Bug") {
             var icon = s"https://raw.githubusercontent.com/ChipWolf/jira-discord-lambda/master/bug.png"
